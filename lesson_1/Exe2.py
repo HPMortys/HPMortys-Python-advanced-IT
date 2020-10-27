@@ -13,4 +13,4 @@ lt_country = ['German', 'Ukraine', 'USA', 'UK', 'German']
 
 for i in lt_country:
     if i in dt_country:
-        print(f'Capital of {i} : {dt_country.get(i)}')
+        print(f'Capital of {i} : {dt_country[i]}')
