@@ -13,18 +13,19 @@ class Shop:
     def __init__(self, name, sale_amount):
         self.name = name
         self.sale_amount = sale_amount
-        self.sum_of_sale += sale_amount
+        Shop.sum_of_sale += sale_amount
 
     def enlarge_sale(self):
         num_sale = int(input('Введите на сколько увеличилось кол-во проданных товаров: '))
         self.sum_of_sale += num_sale
-        self.sale_amount = self.sale_amount + num_sale
+        Shop.sum_of_sale += num_sale
         print(f'Кол-во проданных товаров {self.sale_amount}')
 
     def show_Sum(self):
-        print(f'Общее кол-во товаров проданных всеми магазинами {self.sum_of_sale}')
+        print(f'Общее кол-во товаров проданных всеми магазинами {Shop.sum_of_sale}')
 
 
 mag1 = Shop('Candy',200)
+mag2 = Shop('Candy',300)
 mag1.enlarge_sale()
 mag1.show_Sum()

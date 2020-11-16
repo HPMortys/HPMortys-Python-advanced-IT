@@ -11,15 +11,16 @@ import time
 import random
 
 
-def decorator(count):
+def decorator(count,test):
     def actual_decorator(func):
         def wrapper():
+            print(test)
             sum_time, res = 0, None
             info_dict = {}
             info_dict['Name of func'] = func.__name__
             for i in range(count):
                 time_start = time.time()
-                res = func()
+                res = func(test)
                 time_end = time.time()
                 sum_time += round(time_end - time_start, 9)
                 info_dict[f'{i + 1} call'] = time_end - time_start
@@ -31,8 +32,8 @@ def decorator(count):
     return actual_decorator
 
 
-@decorator(5)
-def rand_sumator():
-    return sum(range(random.randint(1000, 100000)))
+@decorator(5,1000)
+def rand_sumator(test):
+    return sum(range(random.randint(test, 100000)))
 
 print(rand_sumator())
